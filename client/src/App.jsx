@@ -4,8 +4,9 @@ import About from './pages/About'
 import Login from './pages/Login'
 import Signup from './pages/Signup'
 import Dashboard from './pages/Dashboard'
-import Header from './assets/components/Header';
 import Creator from './pages/Creator';
+import Header from './assets/components/Header';
+import Footer from './assets/components/Footer';
 
 function App() {
 
@@ -20,6 +21,7 @@ function App() {
         <Route path='/dashboard' element={<Dashboard />} />
         <Route path='/creator' element={<Creator />} />
       </Routes>
+      <Footer />
     </BrowserRouter>
   )
 }
