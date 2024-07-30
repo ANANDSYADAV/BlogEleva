@@ -1,11 +1,14 @@
 import { Alert, Button, Label, Spinner, TextInput } from 'flowbite-react'
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom'
+import { useDispatch, useSelector } from 'react-redux'
+import { signInInitiate, signInSuccess, signInFailure } from '../toolkit/userSlice';
 
 function Login() {
   const [formData, setFormData] = useState({});
-  const [errorMessage, setErrorMessage] = useState(null);
-  const [loading, setLoading] = useState(false);
+
+  const { loading, error: errorMessage } = useSelector((state) => state.user);
+  const dispatch = useDispatch();
   const navigate = useNavigate();
 
   const handleChange = (e) => {
@@ -14,11 +17,10 @@ function Login() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!formData.email || !formData.password) {
-      return setErrorMessage('Please fill out all the fields');
+      dispatch(signInFailure('Please fill out all the fields'));
     }
     try {
-      setLoading(true);
-      setErrorMessage(null);
+      dispatch(signInInitiate());
       const res = await fetch('/api/auth/login', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -26,21 +28,14 @@ function Login() {
       });
       const data = await res.json();
       if (data.success === false) {
-        return setErrorMessage(data.message);
-        // const errorMsg = data.message;
-        // if (errorMsg.includes('username'))
-        //   setErrorMessage('Username already Exists | Try with some other username');
-        // else {
-        //   setErrorMessage('Email already Exists | Login to your account');
-        // }
+        dispatch(signInFailure(data.message));
       }
-      setLoading(false);
-      if(res.ok) {
+      if (res.ok) {
+        dispatch(signInSuccess(data));
         navigate('/');
       }
     } catch (error) {
-      setErrorMessage(error.message);
-      setLoading(false);
+      dispatch(signInFailure(error.message));
     }
   }
 

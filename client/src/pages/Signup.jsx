@@ -34,7 +34,7 @@ function Signup() {
         }
       }
       setLoading(false);
-      if(res.ok) {
+      if (res.ok) {
         navigate('/login');
       }
     } catch (error) {
