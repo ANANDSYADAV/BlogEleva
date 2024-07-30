@@ -44,7 +44,7 @@ function Signup() {
   }
 
   return (
-    <div className='min-h-screen mt-20'>
+    <div className='h-screen mt-20'>
       <div className='flex p-3 max-w-3xl mx-auto flex-col gap-5 md:flex-row md:items-center'>
         {/* Left */}
         <div className='flex-1'>
@@ -83,7 +83,7 @@ function Signup() {
               <Label value='Your password' />
               <TextInput
                 type='password'
-                placeholder='Password'
+                placeholder='**********'
                 id='password'
                 onChange={handleChange}
               />
@@ -100,7 +100,7 @@ function Signup() {
             </Button>
           </form>
           <div className='flex gap-2 mt-5 text-sm'>
-            <span>Have an account?</span>
+            <span>Already have an account?</span>
             <Link to='/login' className='text-blue-600'>
               Log In
             </Link>
