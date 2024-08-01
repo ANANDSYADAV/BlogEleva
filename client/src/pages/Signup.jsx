@@ -49,12 +49,14 @@ function Signup() {
       <div className='flex p-3 max-w-3xl mx-auto flex-col gap-5 md:flex-row md:items-center'>
         {/* Left */}
         <div className='flex-1'>
-          <Link>
-            <span><img src="/logo.png" alt="logo.img" className='h-[130px] w-[250px] dark:bg-white' /></span>
-          </Link>
-          <p className='text-md mt-5 font-serif font-semibold'>
-            Sign up with you email and password or with Google.
-          </p>
+          <div className='flex flex-col items-center'>
+            <Link>
+              <span><img src="/logo.png" alt="logo.img" className='h-[130px] w-[250px]' /></span>
+            </Link>
+            <p className='text-md mt-5 font-serif font-semibold'>
+              Sign up with you email and password or with Google.
+            </p>
+          </div>
         </div>
 
         {/* Right */}
