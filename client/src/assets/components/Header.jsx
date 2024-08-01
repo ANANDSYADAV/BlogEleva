@@ -36,7 +36,7 @@ function Header() {
           }
         </Button>
 
-        <Link to='/signup'>
+        <Link to={!currentUser ? '/signup' : null}>
           {
             currentUser ?
               (
