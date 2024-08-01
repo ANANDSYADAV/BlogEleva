@@ -7,6 +7,7 @@ import Dashboard from './pages/Dashboard'
 import Creator from './pages/Creator';
 import Header from './assets/components/Header';
 import Footer from './assets/components/Footer';
+import PrivateRoute from './assets/components/PrivateRoute';
 
 function App() {
 
@@ -18,7 +19,9 @@ function App() {
         <Route path='/about' element={<About />} />
         <Route path='/login' element={<Login />} />
         <Route path='/signup' element={<Signup />} />
-        <Route path='/dashboard' element={<Dashboard />} />
+        <Route element={<PrivateRoute />}>
+          <Route path='/dashboard' element={<Dashboard />} />
+        </Route>
         <Route path='/creator' element={<Creator />} />
       </Routes>
       <Footer />
