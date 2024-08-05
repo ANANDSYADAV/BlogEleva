@@ -20,7 +20,7 @@ function DashSidebar() {
             <Sidebar.Items>
                 <Sidebar.ItemGroup>
                     <Link to='/dashboard?tab=profile'>
-                        <Sidebar.Item active={tab === 'profile'} icon={HiUser} label={"User"} labelColor='dark' className="text-xl font-mono font-semibold">
+                        <Sidebar.Item active={tab === 'profile'} icon={HiUser} label={"User"} labelColor='dark' className="text-xl font-mono font-semibold" as='div'>
                             Profile
                         </Sidebar.Item>
                     </Link>
