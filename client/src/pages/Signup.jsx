@@ -54,7 +54,7 @@ function Signup() {
               <span><img src="/logo.png" alt="logo.img" className='h-[130px] w-[250px]' /></span>
             </Link>
             <p className='text-md mt-5 font-serif font-semibold'>
-              Sign up with you email and password or with Google.
+              Sign up with your email and password or with Google.
             </p>
           </div>
         </div>
